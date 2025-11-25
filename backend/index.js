@@ -4,6 +4,7 @@ import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import connectDB from './db/connect.js';
 import locationRoutes from './src/location/locationRoutes.js';
+import userRoutes from './src/user/userRoutes.js';
 import swaggerSpec from './config/swagger.js';
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.get('/api-docs.json', (req, res) => {
 
 // Routes
 app.use('/api/location', locationRoutes);
+app.use('/api/user', userRoutes);
 
 // Health Check Endpoint
 app.get('/health', (req, res) => {

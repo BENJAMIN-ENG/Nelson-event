@@ -75,6 +75,94 @@ const options = {
                         },
                     },
                 },
+                User: {
+                    type: 'object',
+                    required: ['name', 'phone', 'email', 'role', 'location'],
+                    properties: {
+                        _id: {
+                            type: 'string',
+                            description: 'Auto-generated MongoDB ID',
+                        },
+                        name: {
+                            type: 'string',
+                            description: 'User full name',
+                            example: 'John Doe',
+                        },
+                        phone: {
+                            type: 'string',
+                            description: 'User phone number',
+                            example: '+250788123456',
+                        },
+                        email: {
+                            type: 'string',
+                            description: 'User email address',
+                            example: 'john.doe@example.com',
+                        },
+                        role: {
+                            type: 'string',
+                            enum: ['Admin', 'Organizer', 'Attend'],
+                            description: 'User role',
+                            example: 'Organizer',
+                        },
+                        location: {
+                            type: 'object',
+                            description: 'User location (populated)',
+                            properties: {
+                                _id: {
+                                    type: 'string',
+                                },
+                                name: {
+                                    type: 'string',
+                                },
+                                code: {
+                                    type: 'string',
+                                },
+                            },
+                        },
+                        createdAt: {
+                            type: 'string',
+                            format: 'date-time',
+                            description: 'Creation timestamp',
+                        },
+                        updatedAt: {
+                            type: 'string',
+                            format: 'date-time',
+                            description: 'Last update timestamp',
+                        },
+                    },
+                },
+                UserInput: {
+                    type: 'object',
+                    required: ['name', 'phone', 'email', 'role', 'location'],
+                    properties: {
+                        name: {
+                            type: 'string',
+                            description: 'User full name',
+                            example: 'John Doe',
+                        },
+                        phone: {
+                            type: 'string',
+                            description: 'User phone number',
+                            example: '+250788123456',
+                        },
+                        email: {
+                            type: 'string',
+                            description: 'User email address',
+                            example: 'john.doe@example.com',
+                        },
+                        role: {
+                            type: 'string',
+                            enum: ['Admin', 'Organizer', 'Attend'],
+                            description: 'User role (Admin, Organizer, or Attend)',
+                            example: 'Organizer',
+                        },
+                        location: {
+                            type: 'string',
+                            description: 'Location ID',
+                            example: '692593df3eaefe7137d71af0',
+                        },
+                    },
+                },
                 SuccessResponse: {
                     type: 'object',
                     properties: {
